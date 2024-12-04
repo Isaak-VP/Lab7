@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStandardItemModel>
+#include <QStandardItem>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,8 +19,19 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+//new slots for buttons
+
+private slots:
+    void onAddButtonClicked();
+    void onMarkDoneButtonClicked();
+
+
 
 private:
     Ui::MainWindow *ui;
+
+     // Simple counter, model for tabelview
+    QStandardItemModel *model;
+    int taskId;
 };
 #endif // MAINWINDOW_H

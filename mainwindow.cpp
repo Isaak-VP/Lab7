@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    //ui->tableView->sortByColumn(3, Qt::AscendingOrder); // Індекс для рядка дати, для відображення в правльному порядку
+    ui->tableView->verticalHeader()->setDefaultSectionSize(20);
+
 
 
     model = new QStandardItemModel(this);
@@ -35,6 +38,8 @@ void MainWindow::onAddButtonClicked() {
     QString name = ui->lineEditName->text();
     QString description = ui->textEditDescription->toPlainText();
     QDate deadline = ui->dateEditDeadline->date();
+    ui->tableView->setSortingEnabled(true);
+
 
     if (name.isEmpty() || description.isEmpty()) {
         QMessageBox::warning(this, "Помилка", "Будь ласка, заповніть усі поля!");
@@ -46,8 +51,14 @@ void MainWindow::onAddButtonClicked() {
     row << new QStandardItem(QString::number(taskId++));        // ID
     row << new QStandardItem(name);                             // Назва
     row << new QStandardItem(description);                      // Опис
-    row << new QStandardItem(deadline.toString("yyyy-MM-dd"));  // Дедлайн
+    //перписна дата
+    QStandardItem *deadlineItem = new QStandardItem(deadline.toString("yyyy-MM-dd"));
+    deadlineItem->setData(deadline, Qt::UserRole); // Дата під сортування
+    row << deadlineItem;
+
     row << new QStandardItem("Не виконано");                    // Статус
+
+
 
     model->appendRow(row);
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>584</width>
-    <height>306</height>
+    <width>573</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -134,20 +134,6 @@ QHeaderView::section {
         <item row="0" column="0">
          <widget class="QLineEdit" name="lineEditName"/>
         </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="addButton">
-          <property name="text">
-           <string>Додати задачу</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QPushButton" name="markDoneButton">
-          <property name="text">
-           <string>ВИКОНАНО</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="1">
          <widget class="QDateEdit" name="dateEditDeadline">
           <property name="sizePolicy">
@@ -184,9 +170,40 @@ QHeaderView::section {
           </property>
          </widget>
         </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="addButton">
+          <property name="text">
+           <string>Додати задачу</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="markDoneButton">
+          <property name="text">
+           <string>ВИКОНАНО</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>ПІД'ЄДНАТИ ФАЙЛ</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="closeButton">
+      <property name="styleSheet">
+       <string notr="true">back-ground-color: whitered;</string>
+      </property>
+      <property name="text">
+       <string>ЗАКРИТИ</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -195,7 +212,7 @@ QHeaderView::section {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>584</width>
+     <width>573</width>
      <height>21</height>
     </rect>
    </property>

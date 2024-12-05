@@ -6,6 +6,12 @@
 #include <QStandardItem>
 #include <QMessageBox>
 
+// для файлів
+#include <QFile>
+#include <QTextStream>
+#include <QFileDialog>
+#include <Qstring>
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -24,14 +30,27 @@ public:
 private slots:
     void onAddButtonClicked();
     void onMarkDoneButtonClicked();
+     void saveToCsv();
+    void loadFromCsv();
+
+     void on_pushButton_clicked();
+   void  on_closeButton_clicked();
 
 
 
-private:
+
+
+
+
+
+ private:
+
+
     Ui::MainWindow *ui;
 
      // Simple counter, model for tabelview
     QStandardItemModel *model;
     int taskId;
+
 };
 #endif // MAINWINDOW_H

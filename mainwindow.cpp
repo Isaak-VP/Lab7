@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     // сейв файлів коли закривається прога
     connect(qApp, &QApplication::aboutToQuit, this, &MainWindow::saveToCsv);
 
+    connect(ui->DeleteButton, &QPushButton::clicked, this, &MainWindow::onDeleteButtonClicked);
+
 
 
 
@@ -93,6 +95,20 @@ void MainWindow::onMarkDoneButtonClicked() {
         model->setItem(row, 4, new QStandardItem("Виконано")); // Стовпець 4 - Статус
     }
 
+}
+
+void MainWindow::onDeleteButtonClicked() {
+    // Отримуємо вибрані рядки
+    QModelIndexList selected = ui->tableView->selectionModel()->selectedRows();
+    if (selected.isEmpty()) {
+        QMessageBox::warning(this, "Помилка", "Виберіть задачу для видалення!");
+        return;
+    }
+
+    // Видаляємо кожен обраний рядок
+    for (const QModelIndex &index : selected) {
+        model->removeRow(index.row());
+    }
 }
 
 

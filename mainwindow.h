@@ -35,6 +35,7 @@ private slots:
 
      void on_pushButton_clicked();
    void  on_closeButton_clicked();
+   void onDeleteButtonClicked();
 
 
 
